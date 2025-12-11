@@ -13,9 +13,9 @@ const DashboardLayout = () => {
     };
 
     return (
-        <div className="flex min-h-screen bg-gray-100">
+        <div className="flex min-h-screen bg-blue-50">
 
-            <section>
+            <section className='md:sticky md:top-0 md:h-fit'>
                 <Sidebar
                     isOpen={isSidebarOpen}
                     onClose={() => setIsSidebarOpen(false)}
@@ -26,10 +26,12 @@ const DashboardLayout = () => {
             {/* 2. Main Content Area */}
             <div className="flex flex-col flex-grow">
 
-                {/* Top Navigation Bar */}
-                <TopNavBar
-                    onMenuToggle={handleMenuToggle}
-                />
+                <section className='sticky top-0 h-fit'>
+                    <TopNavBar
+                        onMenuToggle={handleMenuToggle}
+                    />
+                </section>
+
 
                 <main className="flex-grow p-4 lg:p-8">
                     <Outlet />

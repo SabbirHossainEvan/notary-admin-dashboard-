@@ -41,13 +41,13 @@ const Sidebar = ({ isOpen, onClose }) => {
     return (
         <>
             <div
-                className={`fixed inset-0 z-40 bg-gray-900 bg-opacity-50 transition-opacity duration-300 lg:hidden ${overlayClass}`}
+                className={`fixed inset-0 z-40 bg-gray-900 bg-opacity-50  transition-opacity duration-300 lg:hidden ${overlayClass}`}
                 onClick={onClose}
             ></div>
 
             {/* 2. Sidebar Content */}
             <div className={`
-                fixed top-0 left-0 h-full w-64 border-r border-r-gray-300 bg-white shadow-2xl z-50 
+                fixed top-0 left-0 h-screen  w-64 border-r border-r-gray-300 bg-white shadow-2xl z-50 
                 transform transition-transform duration-300 ease-in-out
                 
                 /* Desktop/Large Screen Styling */
