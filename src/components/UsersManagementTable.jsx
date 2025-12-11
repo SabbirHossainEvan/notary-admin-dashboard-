@@ -1,9 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Search, SlidersHorizontal, Eye, Trash2, Check, X, Star } from 'lucide-react';
 
-// --- DATA STRUCTURES for the three tabs ---
 
-// 1. Customer Data (Columns: Name, Email, Requests, Completed, Status)
 const customerData = [
   { id: 101, name: 'John Doe', email: 'john@example.com', requests: 12, completed: 10, status: 'Active' },
   { id: 102, name: 'Jane Smith', email: 'jane@example.com', requests: 8, completed: 8, status: 'Active' },
@@ -34,11 +32,9 @@ const tabConfig = [
 const UsersManagementTable = () => {
   const [activeTab, setActiveTab] = useState('customers');
   const [searchTerm, setSearchTerm] = useState('');
-  const [data, setData] = useState(customerData); // Initial data
+  const [data, setData] = useState(customerData); 
 
   // --- Utility Functions ---
-
-  // 1. Get current tab's data based on activeTab state
   const currentTab = tabConfig.find(tab => tab.key === activeTab);
   
   // 2. Dynamic status badge styling
@@ -58,30 +54,27 @@ const UsersManagementTable = () => {
 
   // 3. Handle row deletion (dynamic state update)
   const handleDelete = (id) => {
-    // This filters out the row with the matching id from the current data state
     const newData = data.filter(item => item.id !== id);
     setData(newData);
     alert(`Item with ID ${id} deleted (Simulated).`);
   };
 
-  // 4. Handle Notary Approval/Rejection
+
   const handleNotaryAction = (id, action) => {
       alert(`Notary ID ${id} was ${action} (Simulated).`);
   };
 
-  // --- Dynamic Filtering (The Search Functionality) ---
   const filteredData = useMemo(() => {
     if (!searchTerm) return currentTab.data;
     
     const lowercasedSearch = searchTerm.toLowerCase();
     
-    // Search across all string values in the current tab's data
     return currentTab.data.filter(item => 
       Object.values(item).some(val => 
         String(val).toLowerCase().includes(lowercasedSearch)
       )
     );
-  }, [searchTerm, currentTab]); // Re-run only when search term or tab changes
+  }, [searchTerm, currentTab]); 
 
 
   // 5. Dynamic Table Headers

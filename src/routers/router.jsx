@@ -9,6 +9,9 @@ import Users from "../pages/Users";
 import DashboardContent from "../pages/DashboardContent";
 import DashboardLayout from "../layouts/DashboardLayouts";
 import Jobs from "../pages/Jobs";
+import Affiliates from "../pages/Affiliates";
+import Payments from "../pages/Payments";
+import Profile from "../pages/Profile";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +43,20 @@ const router = createBrowserRouter([
                
                 path: "jobs", 
                 element: <Jobs />
+            },
+           
+            {
+               
+                path: "affiliates", 
+                element: <Affiliates />
+            },
+            {
+                path: "payments", 
+                element: <Payments />
+            },
+            {
+                path: "profile", 
+                element: <Profile />
             },
            
         ]
