@@ -23,7 +23,6 @@ const DashboardLayout = () => {
             </section>
 
 
-            {/* 2. Main Content Area */}
             <div className="flex flex-col flex-grow">
 
                 <section className='sticky top-0 h-fit'>

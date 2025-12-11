@@ -8,21 +8,21 @@ const customerData = [
   { id: 103, name: 'Bob Johnson', email: 'bob@example.com', requests: 5, completed: 3, status: 'Suspended' },
 ];
 
-// 2. Notary Data (Columns: Name, State, License, Jobs, Rating, Fee, Actions)
+
 const notaryData = [
   { id: 201, name: 'Sarah Wilson', state: 'CA', license: 'CA12345', jobs: 45, rating: 4.8, fee: '$50', status: 'Pending' },
   { id: 202, name: 'Mike Brown', state: 'NY', license: 'NY67890', jobs: 32, rating: 4.6, fee: '$45', status: 'Approved' },
   { id: 203, name: 'Lisa Davis', state: 'TX', license: 'TX54321', jobs: 28, rating: 4.9, fee: '$55', status: 'Approved' },
 ];
 
-// 3. Affiliate Data (Columns: Business Name, Email, Referrals, Commission, Status)
+
 const affiliateData = [
     { id: 301, name: 'Tech Solutions LLC', email: 'tech@example.com', referrals: 45, commission: '$2,250', status: 'Active' },
     { id: 302, name: 'Legal Services Inc', email: 'legal@example.com', referrals: 32, commission: '$1,600', status: 'Active' },
     { id: 303, name: 'Business Hub', email: 'hub@example.com', referrals: 28, commission: '$1,400', status: 'Pending' },
 ];
 
-// --- Tab Configuration ---
+
 const tabConfig = [
   { key: 'customers', label: 'Customers', count: customerData.length, data: customerData },
   { key: 'notaries', label: 'Notaries', count: notaryData.length, data: notaryData },
@@ -37,7 +37,6 @@ const UsersManagementTable = () => {
   // --- Utility Functions ---
   const currentTab = tabConfig.find(tab => tab.key === activeTab);
   
-  // 2. Dynamic status badge styling
   const getStatusClass = (status) => {
     switch (status) {
       case 'Active':
@@ -52,7 +51,6 @@ const UsersManagementTable = () => {
     }
   };
 
-  // 3. Handle row deletion (dynamic state update)
   const handleDelete = (id) => {
     const newData = data.filter(item => item.id !== id);
     setData(newData);
@@ -92,7 +90,6 @@ const UsersManagementTable = () => {
   };
 
 
-  // 6. Dynamic Row Renderer (to handle different column structures)
   const renderRow = (item, key) => {
     if (key === 'customers') {
       return (
@@ -201,26 +198,22 @@ const UsersManagementTable = () => {
                 {/* Dynamic Row Content */}
                 {renderRow(user, activeTab)}
 
-                {/* Status Column (Common to all three in the images) */}
                 <td className="px-6 py-4 whitespace-nowrap">
-                  {/* Customers and Affiliates have a dedicated status column */}
                   {(activeTab === 'customers' || activeTab === 'affiliates') && (
                     <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusClass(user.status)}`}>
                       {user.status}
                     </span>
                   )}
-                  {/* Notaries does not have a status column in the image, but we render the actions column instead */}
+
                 </td>
 
                 {/* Actions Column (Different for Notaries) */}
                 <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                   <div className="flex justify-center space-x-2">
-                    {/* View Button (Common) */}
                     <button className="text-blue-600 hover:text-blue-900 p-1 rounded-full hover:bg-blue-50" title="View Details">
                       <Eye className="w-5 h-5" />
                     </button>
                     
-                    {/* Notary-Specific Actions */}
                     {activeTab === 'notaries' ? (
                         <>
                             {/* Approve */}
@@ -233,7 +226,7 @@ const UsersManagementTable = () => {
                             </button>
                         </>
                     ) : (
-                        // Standard Delete Action (for Customers and Affiliates)
+
                         <button onClick={() => handleDelete(user.id)} className="text-red-600 hover:text-red-900 p-1 rounded-full hover:bg-red-50" title="Delete User">
                             <Trash2 className="w-5 h-5" />
                         </button>

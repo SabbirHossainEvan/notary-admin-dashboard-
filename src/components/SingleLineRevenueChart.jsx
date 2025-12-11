@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-// --- Dynamic Chart Data (Based on the single-line image) ---
+
 const chartData = [
   { name: 'Jan', revenue: 45000 },
   { name: 'Feb', revenue: 52000 },
@@ -20,7 +20,7 @@ const chartData = [
   { name: 'Jun', revenue: 68000 },
 ];
 
-// --- Custom Tooltip Component ---
+
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
@@ -39,23 +39,22 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const SingleLineRevenueChart = () => {
   return (
-    // Outer container with light shadow and white background
+
     <div className="bg-white rounded-xl shadow-md p-6 lg:p-8 w-full">
       
       {/* Chart Title */}
       <h2 className="text-xl font-bold text-gray-800 mb-6">Monthly Revenue Growth</h2>
       
-      {/* Responsive Container wrapper */}
+
       <div style={{ width: '100%', height: 400 }}>
           <ResponsiveContainer width="100%" height="100%">
               <LineChart
                   data={chartData}
                   margin={{ top: 5, right: 20, left: 0, bottom: 5 }}
               >
-                  {/* Grid lines (dashed lines in the background) */}
+
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
                   
-                  {/* X-Axis (Months) */}
                   <XAxis 
                       dataKey="name" 
                       axisLine={false} 
@@ -64,18 +63,16 @@ const SingleLineRevenueChart = () => {
                       className="text-xs text-gray-600 font-medium" 
                   />
                   
-                  {/* Y-Axis (The dollar values on the left) */}
                   <YAxis 
-                      domain={[0, 80000]} // Matches the image's max Y-axis
+                      domain={[0, 80000]} 
                       axisLine={false}
                       tickLine={false}
                       className="text-xs text-gray-600 font-medium"
                   />
                   
-                  {/* Tooltip on hover (Uses the corrected component) */}
+
                   <Tooltip content={<CustomTooltip />} />
                   
-                  {/* Legend (at the bottom center) */}
                   <Legend 
                       verticalAlign="bottom" 
                       align="center" 
@@ -87,9 +84,9 @@ const SingleLineRevenueChart = () => {
                   <Line 
                       type="monotone" 
                       dataKey="revenue" 
-                      stroke="#4F46E5" // A nice blue/indigo color
+                      stroke="#4F46E5"
                       strokeWidth={2}
-                      dot={{ r: 4 }} // Solid circles for data points
+                      dot={{ r: 4 }} 
                       activeDot={{ r: 6 }}
                       name="Revenue"
                   />

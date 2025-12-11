@@ -19,21 +19,19 @@ const ForgotPasswordForm = () => {
             setLoading(false);
             console.log('Password reset requested for:', email);
 
-            // Navigate to the confirmation page and pass the email address in the state
             navigate('/email-confirmation', { 
                 state: { 
                     email: email 
                 } 
             });
 
-        }, 1500); // 1.5 seconds simulated API delay
+        }, 1500);
     };
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-blue-50 p-4">
 
             <div className="w-full max-w-sm p-8 bg-white rounded-xl shadow-2xl transition-all duration-300">
-                {/* Cleaned up Link usage (removed redundant button and onClick) */}
                 <Link to={"/"}
                     className="flex items-center text-sm font-medium text-gray-500 hover:text-blue-600 mb-6 transition duration-150"
                 >
@@ -53,7 +51,7 @@ const ForgotPasswordForm = () => {
 
                 {/* Header/Icon Section */}
                 <div className="text-center mb-6">
-                    {/* Blue Mail Icon */}
+
                     <div className="mx-auto w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mb-4">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +101,6 @@ const ForgotPasswordForm = () => {
                         </p>
                     )}
 
-                    {/* Button inside form. No need for Link/Links wrapper */}
                     <button
                         type="submit"
                         disabled={loading || !email}

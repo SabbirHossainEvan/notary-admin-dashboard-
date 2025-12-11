@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
 
-/**
- * A component to confirm that a password reset link has been sent.
+/**.
  *
- * @param {object} props - The component props.
- * @param {string} props.email - The email address the link was sent to.
- * @param {number} [props.validityMinutes=10] - The number of minutes the link is valid for.
- * @param {function} [props.onBackToLogin] - Handler for the "Back to Login" button click.
+ * @param {object} props 
+ * @param {string} props.email 
+ * @param {number} [props.validityMinutes=10] 
+ * @param {function} [props.onBackToLogin] 
  */
 const CheckEmailConfirmation = ({ 
   email, 
@@ -15,17 +14,15 @@ const CheckEmailConfirmation = ({
   onBackToLogin 
 }) => {
   return (
-    // Outer container for centering and light background
+
     <div className="flex items-center justify-center min-h-screen bg-gray-50 p-4 sm:p-6">
       
-      {/* Card container - responsive sizing and shadow */}
       <div className="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full text-center 
                       transform transition duration-300 hover:shadow-3xl">
         
-        {/* Email Icon Circle */}
+
         <div className="flex justify-center mb-6">
           <div className="bg-green-100 p-3 rounded-full">
-            {/* Simple SVG envelope icon */}
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               className="h-8 w-8 text-green-600" 
