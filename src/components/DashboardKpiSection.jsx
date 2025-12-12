@@ -111,9 +111,9 @@ const KpiCard = ({ kpi }) => {
         </div>
       )}
 
-      {kpi.title === 'Monthly Growth' && kpi.change && (
+      {/* {kpi.title === 'Monthly Growth' && kpi.change && (
         <p className="text-sm text-gray-400 mt-2">{kpi.change}</p>
-      )}
+      )} */}
 
     </div>
   );
